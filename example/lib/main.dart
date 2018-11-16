@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bingmaps/flutter_bingmaps_plugin.dart';
 
 void main() => runApp(new MyApp());
 
 class MyApp extends StatelessWidget {
+
   @override
   Widget build(BuildContext context) {
     return new MaterialApp(
@@ -23,17 +25,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+
+  get _getApiKey {
+    return 'YourApiKey';
+  }
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
-      appBar: new AppBar(
-        title: new Text(widget.title),
-      ),
-      body: new Center(
-        child: new Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-        ),
-      ),
+      body: new BingMap(_getApiKey),
     );
   }
 }

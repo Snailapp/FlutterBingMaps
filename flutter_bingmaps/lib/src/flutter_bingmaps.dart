@@ -3,9 +3,7 @@ library flutter_bingmaps;
 import 'package:flutter/widgets.dart';
 import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
-
-
-class BingMap extends StatefulWidget{
+class BingMap extends StatefulWidget {
   final String _key;
 
   BingMap(this._key);
@@ -14,10 +12,11 @@ class BingMap extends StatefulWidget{
   _BingMapState createState() => new _BingMapState(this._key);
 }
 
-class _BingMapState  extends State<BingMap> {
+class _BingMapState extends State<BingMap> {
   final String _key;
 
   FlutterWebviewPlugin flutterWebviewPlugin = new FlutterWebviewPlugin();
+
   _BingMapState(this._key);
 
   @override
@@ -32,12 +31,12 @@ class _BingMapState  extends State<BingMap> {
       withJavascript: true,
       enableAppScheme: true,
     );
-    return null;
+    return new SizedBox();
   }
 
   _getUrl() {
     return Uri.dataFromString(
-        "<html>"
+            "<html>"
             "<head>"
             "<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>"
             "<script type='text/javascript' src='http://www.bing.com/api/maps/mapcontrol?branch=release'></script>"
@@ -47,7 +46,7 @@ class _BingMapState  extends State<BingMap> {
             "<div id='myMap' style='width: 100vw; height: 100vh;'></div>"
             "</body>"
             "</html>",
-        mimeType: 'text/html')
+            mimeType: 'text/html')
         .toString();
   }
 }
